@@ -1,0 +1,49 @@
+<div class="container-fluid position-fixed" id="hiddenBlock" hidden>
+    <div class="">
+        <form id="form" class="col-md-6 offset-md-3 mt-3"  action="/" method="POST" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-sm">
+                    <h4>Название:</h4>
+                </div>
+                <div class="col-md">
+                    <input class="form-control" type="text" name="text" id="text-upload" required />
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md">
+                    <h4>Токен:</h4>
+                </div>
+                <div class="col-sm">
+                    <input class="form-control" type="text" name="text" id="text-upload" required />
+                </div>
+            </div>
+            <div class="col">     
+                <button class="btn btn-primary mt-4 active bg-black"  type="button" id="#">Create bot</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-2">
+            <button class="btn btn-primary  mt-4 active  bg-black" 
+                    type="button" id="showButton" onmousedown="showBlock()">
+                    Create bot
+            </button>
+        </div>
+    </div>
+    <!-- При наличии ботов нужно будет показывать данный блок -->
+    <!-- <h3 class="mt-2">Ваши боты</h3>
+    <div class="row mt-2" id="#">
+        <div class="col-3 border border-2">
+            Бот ...
+        </div>
+        <div class="col-3 border border-2">
+            Бот ...
+        </div>
+        <div class="col-3 border border-2">
+            Бот ...
+        </div>
+    </div> -->
+</div>
+<script src="../scripts/script.js"></script>
