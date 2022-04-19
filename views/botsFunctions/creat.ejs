@@ -1,26 +1,28 @@
-<div class="container-fluid position-fixed" id="hiddenBlock" hidden>
-    <div class="">
-        <form id="form" class="col-md-6 offset-md-3 mt-3"  action="/" method="POST" enctype="multipart/form-data">
-            <div class="row">
-                <div class="col-sm">
-                    <h4>Название:</h4>
+<div class="container-fluid position-fixed w-100 h-100 bg-gray-op-4" id="hiddenBlock" hidden>
+    <div class="col-6 bg-white rounded position-absolute top-0 start-50 translate-middle-x mt-5">
+        <div class="mt-1 mb-1">
+            <form id="form" class="col-md-6 offset-md-3 "  action="/" method="POST" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-sm">
+                        <h4>Название:</h4>
+                    </div>
+                    <div class="col-lr">
+                        <input class="form-control" type="text" name="text" id="text-upload" required />
+                    </div>
                 </div>
-                <div class="col-md">
-                    <input class="form-control" type="text" name="text" id="text-upload" required />
+                <div class="row mt-2">
+                    <div class="col-sm">
+                        <h4>Токен:</h4>
+                    </div>
+                    <div class="col-lr">
+                        <input class="form-control" type="text" name="text" id="text-upload" required />
+                    </div>
                 </div>
-            </div>
-            <div class="row mt-2">
-                <div class="col-md">
-                    <h4>Токен:</h4>
+                <div class="col">     
+                    <button class="btn btn-primary mt-4 active bg-black"  type="button" id="#">Create bot</button>
                 </div>
-                <div class="col-sm">
-                    <input class="form-control" type="text" name="text" id="text-upload" required />
-                </div>
-            </div>
-            <div class="col">     
-                <button class="btn btn-primary mt-4 active bg-black"  type="button" id="#">Create bot</button>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>
 <div class="container">

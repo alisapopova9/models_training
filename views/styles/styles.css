@@ -26,9 +26,7 @@
         transform: rotate(360deg);
     }
 }
-.createMenu{
-    height: 100%;
-    width: 100%;
-    background-color: black;
-    opacity: 100%;
+
+.bg-gray-op-4 {
+    background-color: rgba(0,0,0,0.4);
 }
