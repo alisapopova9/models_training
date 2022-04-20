@@ -20,6 +20,10 @@ app.get("/", (req, res) => {
 
 
 
+app.get("/bot:id", (req, res) => {
+    res.render("/views/layouts/BotTraining.ejs");
+});
+
 // axios
 //     .get("http://localhost:8080/api/v1/person/")
 //     .then((response) => {
