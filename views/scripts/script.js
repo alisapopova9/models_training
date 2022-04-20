@@ -1,3 +1,5 @@
+const { disable } = require("express/lib/application");
+
 const form = document.querySelector("#form");
 const submitBtn = document.querySelector("#submit");
 const loader = document.querySelector(".loader");
@@ -33,3 +35,6 @@ form.addEventListener("submit", (event) => {
             console.error(err);
         });
 });
+function showBlock(){
+    document.getElementById("hiddenBlock").hidden = false;
+};

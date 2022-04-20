@@ -18,6 +18,12 @@ app.get("/", (req, res) => {
     res.render("index");
 });
 
+app.get("/learning", (req, res) => {
+    res.render("layouts/learning");
+});
+
+
+
 // axios
 //     .get("http://localhost:8080/api/v1/person/")
 //     .then((response) => {
