@@ -38,3 +38,24 @@ form.addEventListener("submit", (event) => {
 function showBlock(){
     document.getElementById("hiddenBlock").hidden = false;
 };
+
+
+function ChangeLoadBtn(){
+    var checkInput = document.getElementById("file-upload");
+    if(checkInput.value){
+        document.getElementById("loadBtn").removeAttribute('disabled');
+        document.getElementById('fileHelpBlock').hidden=true;
+    }
+
+}
+
+function EnableBtns(){
+    event.preventDefault(); //убрать при отправке запроса
+    var checkInput = document.getElementById("file-upload");
+    document.getElementById('fileHelpBlock').hidden=false;
+    document.getElementById('fileHelpBlock').textContent=`Файл "${checkInput.value}" успешно загружен!`;
+    document.getElementById('watchDataBtn').removeAttribute('disabled');
+    document.getElementById('learnModelBtn').removeAttribute('disabled');
+
+}
+
