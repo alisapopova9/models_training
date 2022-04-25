@@ -15,8 +15,30 @@ app.use(express.static(path.join(__dirname, "views")));
 app.use(methodOverride("_method"));
 
 app.get("/", (req, res) => {
+    // Зпорос на уже имеющихся ботов
     res.render("index");
 });
+
+app.post("/", (res, req) => {
+    // Создание нового бота по введенным данным
+    res.redirect("index");
+})
+
+app.delete("/:id", (req, res) => {
+    // Запрос на удаление бота по id
+    res.redirect("index");
+})
+
+app.put("/:id", (req, res) => {
+    // Запрос на измсенение данных бота с новыми данными
+    res.redirect("index")
+})
+
+app.get("/:id", (req, res) => {
+    // Тут мы выводим старничку с обучени
+})
+
+
 
 // axios
 //     .get("http://localhost:8080/api/v1/person/")
