@@ -18,6 +18,12 @@ app.get("/", (req, res) => {
     res.render("index");
 });
 
+
+
+app.get("/bot:id", (req, res) => {
+    res.render("/views/layouts/BotTraining.ejs");
+});
+
 // axios
 //     .get("http://localhost:8080/api/v1/person/")
 //     .then((response) => {
