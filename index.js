@@ -38,7 +38,9 @@ app.get("/:id", (req, res) => {
     // Тут мы выводим старничку с обучени
 })
 
-
+app.get("/bot:id", (req, res) => {
+    res.render("/views/layouts/BotTraining.ejs");
+});
 
 // axios
 //     .get("http://localhost:8080/api/v1/person/")
