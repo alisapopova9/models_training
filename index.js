@@ -15,10 +15,8 @@ app.use(express.static(path.join(__dirname, "views")));
 app.use(methodOverride("_method"));
 
 app.get("/", (req, res) => {
-    res.render("index");
+    res.render("index", { bots });
 });
-
-
 
 app.get("/bot:id", (req, res) => {
     res.render("/views/layouts/BotTraining.ejs");
