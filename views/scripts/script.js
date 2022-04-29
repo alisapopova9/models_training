@@ -1,5 +1,4 @@
 const { disable } = require("express/lib/application");
-
 const form = document.querySelector("#form");
 const submitBtn = document.querySelector("#submit");
 const loader = document.querySelector(".loader");
@@ -15,9 +14,9 @@ form.addEventListener("submit", (event) => {
     loader.hidden = false;
 
     fetch(form.action, {
-        method: "post",
-        body: formData,
-    })
+            method: "post",
+            body: formData,
+        })
         .then((resp) => {
             return resp.blob();
         })
@@ -35,11 +34,6 @@ form.addEventListener("submit", (event) => {
             console.error(err);
         });
 });
-function showBlock(){
-    document.getElementById("hiddenBlock").hidden = false;
-};
-
-
 function ChangeLoadBtn(){
     var checkInput = document.getElementById("file-upload");
     if(checkInput.value){
@@ -59,3 +53,15 @@ function EnableBtns(){
 
 }
 
+function showBlock() {
+    document.getElementById("hiddenBlock").hidden = false;
+    document.addEventListener("click", function(event) {
+        if (event.target.id == "hiddenBlock") {
+            document.getElementById("hiddenBlock").hidden = true;
+        }
+    });
+    document.addEventListener('keyup', function(event) {
+        if (event.key === "Escape")
+            document.getElementById("hiddenBlock").hidden = true;
+    });
+}

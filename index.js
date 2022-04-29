@@ -13,9 +13,18 @@ app.engine("ejs", ejsMate);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "views")));
 app.use(methodOverride("_method"));
-
+// Чтобы ошибок не было оставил одного бота
 app.get("/", (req, res) => {
-    res.render("index");
+    let bots = [{
+        name: "Бот-1",
+        id: "1",
+        token: "1902183901877623683180749819374796"
+    }]
+    res.render("index", { bots });
+});
+
+app.get("/bot:id", (req, res) => {
+    res.render("/views/layouts/BotTraining.ejs");
 });
 
 app.get("/learning", (req, res) => {
