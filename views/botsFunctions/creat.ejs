@@ -35,9 +35,9 @@
     </div>
     <!-- При наличии ботов нужно будет показывать данный блок -->
     <h3 class="mt-2">Ваши боты: </h3>
-    <div class="d-inline-flex flex-wrap" id="botsPanel ">
+    <div class="container-fluid d-inline-flex flex-wrap" id="botsPanel ">
         <% for(let bot of bots) {%>
-            <div class="col-4 p-1">
+            <div class="col-6 p-1">
                 <div class="container position-relative border border-dark rounded ">
                     <button class="btn btn-secondary dropdown-toggle position-absolute end-0 top-0 visually-hidden" type="button" id="<%-bot.id%>" data-bs-toggle="dropdown" aria-expanded="false">
                     </button>
