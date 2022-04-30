@@ -53,15 +53,15 @@ function EnableBtns(){
 
 }
 
-function showBlock() {
-    document.getElementById("hiddenBlock").hidden = false;
+function showBlock(blockId) {
+    document.getElementById(blockId).hidden = false;
     document.addEventListener("click", function(event) {
-        if (event.target.id == "hiddenBlock") {
-            document.getElementById("hiddenBlock").hidden = true;
+        if (event.target.id == blockId) {
+            document.getElementById(blockId).hidden = true;
         }
     });
     document.addEventListener('keyup', function(event) {
         if (event.key === "Escape")
-            document.getElementById("hiddenBlock").hidden = true;
+            document.getElementById(blockId).hidden = true;
     });
 }

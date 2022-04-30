@@ -1,4 +1,4 @@
-<div class="container-fluid  position-absolute h-100 z-100 bg-black-op-2" id="hiddenBlock" hidden>
+<div class="container-fluid  position-absolute h-100 z-100 bg-black-op-2" id="hiddenCreateBot" hidden>
     <div class="col-4 bg-white rounded position-absolute top-0 start-50 translate-middle-x mt-5 pt-3 pb-3" id="createMenu">
         <form id="form" class="container" action="/" method="POST" enctype="multipart/form-data">
             <div class="row">
@@ -25,10 +25,25 @@
         </form>
     </div>
 </div>
+
+<div class="container-fluid  position-absolute h-100 z-100 bg-black-op-2" id="hiddenRemoveBot" hidden>
+    <div class="col-4 m-auto bg-white rounded position-absolute top-0 start-50 translate-middle-x mt-5 pt-3 pb-3" id="createMenu">
+        <form id="form" class="container m-auto" action="/" method="POST" enctype="multipart/form-data">
+            <div class="row mt-2 w-auto text-justify text-center">
+                <h4>Remove chat-bot</h4>
+                <p class="fw-weight-light">Вы действительно хотите удалить бот?
+                </p>
+                <button class="btn btn-primary bg-black alert-danger w-auto m-auto" type="button" id="#">Remove</button>
+                <button class="btn btn-primary bg-black w-auto m-auto" type="button" id="#">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 <div class="container">
     <div class="row">
         <div class="col-2">
-            <button class="btn btn-primary  mt-4 active  bg-black" type="button" id="showButton" onmousedown="showBlock()">
+            <button class="btn btn-primary  mt-4 active  bg-black" type="button" id="showButton" onmousedown="showBlock('hiddenCreateBot')">
                     Create bot
             </button>
         </div>
@@ -43,8 +58,8 @@
                     </button>
                     <label class="btn position-absolute end-0 top-0 mt-2 me-2" for="<%-bot.id%>"><h2 class="fw-bold"> &#8942;</h2> </label>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">Изменить название и токен</a></li>
-                        <li><a class="dropdown-item alert-danger" href="#">Удалить</a></li>
+                        <li><button class="dropdown-item">Изменить название и токен</button></li>
+                        <li><button class="dropdown-item alert-danger" id="<%-bot.id%>" onmousedown="showBlock('hiddenRemoveBot')">Remove</button></li>
                     </ul>
                     <div class="row mt-2">
                         <h5>Название чат-бота:</h5>
