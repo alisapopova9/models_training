@@ -34,16 +34,38 @@ form.addEventListener("submit", (event) => {
             console.error(err);
         });
 });
+<<<<<<< Updated upstream
+=======
 
-function showBlock() {
-    document.getElementById("hiddenBlock").hidden = false;
+function ChangeLoadBtn() {
+    var checkInput = document.getElementById("file-upload");
+    if (checkInput.value) {
+        document.getElementById("loadBtn").removeAttribute('disabled');
+        document.getElementById('fileHelpBlock').hidden = true;
+    }
+
+}
+
+function EnableBtns() {
+    event.preventDefault(); //убрать при отправке запроса
+    var checkInput = document.getElementById("file-upload");
+    document.getElementById('fileHelpBlock').hidden = false;
+    document.getElementById('fileHelpBlock').textContent = `Файл "${checkInput.value}" успешно загружен!`;
+    document.getElementById('watchDataBtn').removeAttribute('disabled');
+    document.getElementById('learnModelBtn').removeAttribute('disabled');
+
+}
+>>>>>>> Stashed changes
+
+function showBlock(blockId) {
+    document.getElementById(blockId).hidden = false;
     document.addEventListener("click", function(event) {
-        if (event.target.id == "hiddenBlock") {
-            document.getElementById("hiddenBlock").hidden = true;
+        if (event.target.id == blockId) {
+            document.getElementById(blockId).hidden = true;
         }
     });
     document.addEventListener('keyup', function(event) {
         if (event.key === "Escape")
-            document.getElementById("hiddenBlock").hidden = true;
+            document.getElementById(blockId).hidden = true;
     });
 }
