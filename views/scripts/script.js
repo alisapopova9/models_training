@@ -34,28 +34,24 @@ form.addEventListener("submit", (event) => {
             console.error(err);
         });
 });
-<<<<<<< Updated upstream
-=======
-
-function ChangeLoadBtn() {
+function ChangeLoadBtn(){
     var checkInput = document.getElementById("file-upload");
-    if (checkInput.value) {
+    if(checkInput.value){
         document.getElementById("loadBtn").removeAttribute('disabled');
-        document.getElementById('fileHelpBlock').hidden = true;
+        document.getElementById('fileHelpBlock').hidden=true;
     }
 
 }
 
-function EnableBtns() {
+function EnableBtns(){
     event.preventDefault(); //убрать при отправке запроса
     var checkInput = document.getElementById("file-upload");
-    document.getElementById('fileHelpBlock').hidden = false;
-    document.getElementById('fileHelpBlock').textContent = `Файл "${checkInput.value}" успешно загружен!`;
+    document.getElementById('fileHelpBlock').hidden=false;
+    document.getElementById('fileHelpBlock').textContent=`Файл "${checkInput.value}" успешно загружен!`;
     document.getElementById('watchDataBtn').removeAttribute('disabled');
     document.getElementById('learnModelBtn').removeAttribute('disabled');
 
 }
->>>>>>> Stashed changes
 
 function showBlock(blockId) {
     document.getElementById(blockId).hidden = false;
