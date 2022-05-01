@@ -14,6 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "views")));
 app.use(methodOverride("_method"));
 // Чтобы ошибок не было оставил одного бота
+
 app.get("/", (req, res) => {
     let bots = [{
         name: "Бот-1",
@@ -23,9 +24,11 @@ app.get("/", (req, res) => {
     res.render("index", { bots });
 });
 
-app.get("/bot:id", (req, res) => {
-    res.render("/views/layouts/BotTraining.ejs");
+app.get("/learning", (req, res) => {
+    res.render("layouts/learning");
 });
+
+
 
 // axios
 //     .get("http://localhost:8080/api/v1/person/")
