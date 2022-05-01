@@ -34,8 +34,6 @@ form.addEventListener("submit", (event) => {
             console.error(err);
         });
 });
-<<<<<<< Updated upstream
-=======
 
 function ChangeLoadBtn() {
     var checkInput = document.getElementById("file-upload");
@@ -55,7 +53,6 @@ function EnableBtns() {
     document.getElementById('learnModelBtn').removeAttribute('disabled');
 
 }
->>>>>>> Stashed changes
 
 function showBlock(blockId) {
     document.getElementById(blockId).hidden = false;
@@ -64,8 +61,12 @@ function showBlock(blockId) {
             document.getElementById(blockId).hidden = true;
         }
     });
-    document.addEventListener('keyup', function(event) {
+    document.addEventListener("keyup", function(event) {
         if (event.key === "Escape")
             document.getElementById(blockId).hidden = true;
     });
+}
+
+function closeBlock(blockId) {
+    document.getElementById(blockId).hidden = true;
 }
