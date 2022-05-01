@@ -25,7 +25,12 @@ app.get("/", (req, res) => {
 });
 
 app.get("/learning", (req, res) => {
-    res.render("layouts/learning");
+    let bot = {
+        name: "Бот-1",
+        id: "1",
+        token: "1902183901877623683180749819374796"
+    }
+    res.render("layouts/learning", { bot });
 });
 
 

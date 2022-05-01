@@ -70,3 +70,7 @@ function showBlock(blockId) {
 function closeBlock(blockId) {
     document.getElementById(blockId).hidden = true;
 }
+
+function learningBot(botId) {
+    window.location.href = "/learning";
+}
