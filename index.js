@@ -13,33 +13,40 @@ app.engine("ejs", ejsMate);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "views")));
 app.use(methodOverride("_method"));
+// Чтобы ошибок не было оставил одного бота
 
 app.get("/", (req, res) => {
-    // Зпорос на уже имеющихся ботов
-    res.render("index");
+    let bots = [
+        {
+            name: "Бот-1",
+            id: "1",
+            token: "1902183901877623683180749819374796",
+        },
+    ];
+    res.render("index", { bots });
+});
+
+app.get("/learning", (req, res) => {
+    res.render("layouts/learning");
 });
 
 app.post("/", (res, req) => {
     // Создание нового бота по введенным данным
     res.redirect("index");
-})
+});
 
 app.delete("/:id", (req, res) => {
     // Запрос на удаление бота по id
     res.redirect("index");
-})
+});
 
 app.put("/:id", (req, res) => {
     // Запрос на измсенение данных бота с новыми данными
-    res.redirect("index")
-})
+    res.redirect("index");
+});
 
 app.get("/:id", (req, res) => {
     // Тут мы выводим старничку с обучени
-})
-
-app.get("/bot:id", (req, res) => {
-    res.render("/views/layouts/BotTraining.ejs");
 });
 
 // axios

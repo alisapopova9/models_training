@@ -1,4 +1,4 @@
-<div class="container-fluid position-fixed w-100 h-100 bg-gray-op-4" id="hiddenBlock" hidden>
+<div class="container-fluid  position-absolute h-100 z-100 bg-black-op-2" id="hiddenCreateBot" hidden>
     <div class="col-4 bg-white rounded position-absolute top-0 start-50 translate-middle-x mt-5 pt-3 pb-3" id="createMenu">
         <form id="form" class="container" action="/" method="POST" enctype="multipart/form-data">
             <div class="row">
@@ -6,47 +6,79 @@
                     <h4>Название:</h4>
                 </div>
                 <div class="col-8">
-                    <input class="form-control" type="text" name="text" id="text-upload" required />
+                    <input class="form form-control" type="text" name="text" id="botName" required />
                 </div>
             </div>
             <div class="row mt-2">
                 <div class="col-4">
                     <h4>Токен:</h4>
                 </div>
-                <div class="col-8">
-                    <input class="form-control" type="text" name="text" id="text-upload" required />
+                <div class="col-8 ">
+                    <input class="form form-control " type="text" name="text" id="botToken" required />
                 </div>
             </div>
-            <div class="row mt-2">
-                <div class="col-9"></div>
+            <div class="row mt-2 justify-content-end">
                 <div class="col-3">
-                    <button class="btn btn-primary active bg-black" type="button" id="#">Create bot</button>
+                    <button class="btn btn-primary bg-black" type="button" id="#">Create bot</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
+
+<div class="container-fluid  position-absolute h-100 z-100 bg-black-op-2" id="hiddenRemoveBot" hidden>
+    <div class="col-4 m-auto bg-white rounded position-absolute top-0 start-50 translate-middle-x mt-5 pt-3 pb-3" id="createMenu">
+        <form id="form" class="container m-auto" action="/" method="POST" enctype="multipart/form-data">
+            <div class="row mt-2 w-auto text-justify text-center">
+                <h4>Remove chat-bot</h4>
+                <p class="fw-weight-light">Вы действительно хотите удалить бот?
+                </p>
+                <button class="btn btn-primary bg-black alert-danger w-auto m-auto" type="button" id="#">Remove</button>
+                <button class="btn btn-primary bg-black w-auto m-auto" type="button" id="#">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 <div class="container">
     <div class="row">
         <div class="col-2">
-            <button class="btn btn-primary  mt-4 active  bg-black" type="button" id="showButton" onmousedown="showBlock()">
+            <button class="btn btn-primary  mt-4 active  bg-black" type="button" id="showButton" onmousedown="showBlock('hiddenCreateBot')">
                     Create bot
             </button>
         </div>
     </div>
     <!-- При наличии ботов нужно будет показывать данный блок -->
-    <!-- <h3 class="mt-2">Ваши боты</h3>
-    <div class="row mt-2" id="#">
-        <div class="col-3 border border-2">
-            Бот ...
-            <button class="btn btn-primary mt-4 bg-black" href="/bot:id" id="1"></button>
-        </div>
-        <div class="col-3 border border-2">
-            Бот ...
-        </div>
-        <div class="col-3 border border-2">
-            Бот ...
-        </div>
-    </div> -->
+    <h3 class="mt-2">Ваши боты: </h3>
+    <div class="container-fluid d-inline-flex flex-wrap" id="botsPanel ">
+        <% for(let bot of bots) {%>
+            <div class="col-6 p-1">
+                <div class="container position-relative border border-dark rounded ">
+                    <button class="btn btn-secondary dropdown-toggle position-absolute end-0 top-0 visually-hidden" type="button" id="<%-bot.id%>" data-bs-toggle="dropdown" aria-expanded="false">
+                    </button>
+                    <label class="btn position-absolute end-0 top-0 mt-2 me-2" for="<%-bot.id%>"><h2 class="fw-bold"> &#8942;</h2> </label>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><button class="dropdown-item">Изменить название и токен</button></li>
+                        <li><button class="dropdown-item alert-danger" id="<%-bot.id%>" onmousedown="showBlock('hiddenRemoveBot')">Remove</button></li>
+                    </ul>
+                    <div class="row mt-2">
+                        <h5>Название чат-бота:</h5>
+                        <p class="fw-weight-light">
+                            <%=bot.name%>
+                        </p>
+                    </div>
+                    <div class="row mt-2 mb-5">
+                        <h5>Токен чат-бота</h5>
+                        <div class="col-12">
+                            <p class="fw-weight-light">
+                                <%=bot.token%>
+                            </p>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary active bg-black position-absolute end-0 bottom-0 m-1" type="button" id="<%-bot.id%>">Обучить бота</button>
+                </div>
+            </div>
+            <%}%>
+    </div>
 </div>
 <script src="../scripts/script.js"></script>
