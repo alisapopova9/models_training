@@ -24,8 +24,13 @@ app.get("/", (req, res) => {
     res.render("index", { bots });
 });
 
-app.get("/learning", (req, res) => {
-    res.render("layouts/learning");
+app.get("/learning/:botId", (req, res) => {
+    const bot = {
+        name: "Бот-1",
+        id: "1",
+        token: "1902183901877623683180749819374796"
+    }
+    res.render("layouts/learning", { bot });
 });
 
 
