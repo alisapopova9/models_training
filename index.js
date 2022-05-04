@@ -13,7 +13,7 @@ app.engine("ejs", ejsMate);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "views")));
 app.use(methodOverride("_method"));
-//Чтобы ошибок не было оставил одного бота
+// Чтобы ошибок не было оставил одного бота
 
 app.get("/", (req, res) => {
     let bots = [{
@@ -24,13 +24,8 @@ app.get("/", (req, res) => {
     res.render("index", { bots });
 });
 
-app.get("/learning/:botId", (req, res) => {
-    const bot = {
-        name: "Бот-1",
-        id: "1",
-        token: "1902183901877623683180749819374796"
-    }
-    res.render("layouts/learning", { bot });
+app.get("/learning", (req, res) => {
+    res.render("layouts/learning");
 });
 
 
