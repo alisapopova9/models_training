@@ -35,42 +35,21 @@ form.addEventListener("submit", (event) => {
         });
 });
 
-function ChangeLoadBtn() {
+function ChangeLoadButton() {
     var checkInput = document.getElementById("file-upload");
     if (checkInput.value) {
-        document.getElementById("loadBtn").removeAttribute('disabled');
-        document.getElementById('fileHelpBlock').hidden = true;
+        document.getElementById("loadBtn").removeAttribute("disabled");
+        document.getElementById("fileHelpBlock").hidden = true;
     }
 
 }
 
-function EnableBtns() {
-    event.preventDefault(); //убрать при отправке запроса
-    var checkInput = document.getElementById("file-upload");
-    document.getElementById('fileHelpBlock').hidden = false;
-    document.getElementById('fileHelpBlock').textContent = `Файл "${checkInput.value}" успешно загружен!`;
-    document.getElementById('watchDataBtn').removeAttribute('disabled');
-    document.getElementById('learnModelBtn').removeAttribute('disabled');
-
-}
-
-function showBlock(blockId) {
-    document.getElementById(blockId).hidden = false;
-    document.addEventListener("click", function(event) {
-        if (event.target.id == blockId) {
-            document.getElementById(blockId).hidden = true;
-        }
-    });
-    document.addEventListener("keyup", function(event) {
-        if (event.key === "Escape")
-            document.getElementById(blockId).hidden = true;
-    });
-}
-
-function closeBlock(blockId) {
-    document.getElementById(blockId).hidden = true;
-}
-
-function learningBot(botId) {
-    window.location.href = "/learning";
+function EnableButtons() {
+    // TODO: убрать при отправке запроса
+    event.preventDefault();
+    let checkInput = document.getElementById("file-upload");
+    document.getElementById("fileHelpBlock").hidden = false;
+    document.getElementById("fileHelpBlock").textContent = "Файл '${checkInput.value}' успешно загружен!";
+    document.getElementById("watchDataBtn").removeAttribute("disabled");
+    document.getElementById("learnModelBtn").removeAttribute("disabled");
 }
