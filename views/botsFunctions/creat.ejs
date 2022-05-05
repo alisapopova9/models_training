@@ -1,119 +1,94 @@
 <!-- Меню создания бота -->
 <div class="modal fade" id="createMenu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <fieldset class="modal-dialog">
         <div class="modal-content p-3">
             <div class="modal-header justify-content-center">
                 <h5 class="modal-title" id="exampleModalLabel">Сreate Menu</h5>
             </div>
-            <div class="row mt-2">
-                <div class="col-4">
-                    <h4>Name:</h4>
-                </div>
-                <div class="col-8">
-                    <input class="form form-control" type="text" name="text" id="botName" required />
-                </div>
-            </div>
-            <div class="row mt-2 mb-2">
-                <div class="col-4">
-                    <h4>Token:</h4>
-                </div>
-                <div class="col-8">
-                    <input class="form form-control" type="text" name="text" id="botToken" required />
-                </div>
-            </div>
-            <div class="modal-footer">
+            <h4>Name:</h4>
+            <input class="form form-control" type="text" name="text" id="botName" required />
+            <h4>Token:</h4>
+            <input class="form form-control" type="text" name="text" id="botToken" required />
+            <div class="modal-footer mt-2">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class=" btn btn-primary bg-black">Create bot</button>
+                <button type="button" class=" btn btn-outline-success">Create bot</button>
             </div>
         </div>
-    </div>
+    </fieldset>
 </div>
 
 <!-- Меню редактирования бота -->
 <div class="modal fade" id="editMenu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <fieldset class="modal-dialog">
         <div class="modal-content p-3">
             <div class="modal-header justify-content-center">
                 <h5 class="modal-title" id="exampleModalLabel">Edit Menu</h5>
             </div>
-            <div class="row mt-2">
-                <div class="col-4">
-                    <h4>Name:</h4>
-                </div>
-                <div class="col-8">
-                    <input class="form form-control" type="text" name="text" id="botName" placeholder="Текущее имя бота" required />
-                </div>
-            </div>
-            <div class="row mt-2 mb-2">
-                <div class="col-4">
-                    <h4>Token:</h4>
-                </div>
-                <div class="col-8">
-                    <input class="form form-control" type="text" name="text" id="botToken" placeholder="Текущий токен бота" required />
-                </div>
-            </div>
-            <div class="modal-footer">
+            <!-- TODO: нужно будет сделать подгрузку названия и токена бота и вставить их в плейсхолдеры -->
+            <h4>Name:</h4>
+            <input class="form form-control" type="text" name="text" id="botName" placeholder="Текущее имя бота" required />
+            <h4>Token:</h4>
+            <input class="form form-control" type="text" name="text" id="botToken" placeholder="Текущий токен бота" required />
+            <div class="modal-footer mt-2">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class=" btn btn-primary bg-black">Create bot</button>
+                <button type="button" class=" btn btn-outline-success">Edit bot</button>
             </div>
         </div>
-    </div>
+    </fieldset>
 </div>
 
 <!-- Меню удаления бота -->
 <div class="modal fade" id="deleteMenu" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content p-3">
-            <div class="container">
-                <h5 class="modal-title text-center" id="exampleModalLabel">Do you really want to delete the bot?</h5>
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-primary col-3 alert-danger bg-black">Delete</button>
-                    <button type="button" class="btn btn-secondary col-3" data-bs-dismiss="modal">Cancel</button>
-                </div>
+            <h5 class="modal-title text-center">Do you really want to delete the bot?</h5>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-outline-danger">Delete</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
             </div>
         </div>
     </div>
 </div>
 
 <div class="container">
-    <div class="row">
-        <div class="col-2">
-            <button class="btn btn-primary  mt-4 bg-black" type="button" data-bs-toggle="modal" data-bs-target="#createMenu">
+    <div class="container mt-2">
+        <button class="btn btn btn-secondary" type="button" data-bs-toggle="modal" data-bs-target="#createMenu">
                     Create bot
             </button>
-        </div>
     </div>
     <!-- При наличии ботов нужно будет показывать данный блок -->
-    <h3 class="mt-2">Ваши боты: </h3>
-    <div class="container-fluid d-inline-flex flex-wrap">
-        <% for(let bot of bots) {%>
-            <div class="col-6 p-1">
-                <div class="container position-relative border border-dark rounded">
-                    <button class="btn btn-secondary dropdown-toggle position-absolute end-0 top-0 visually-hidden" type="button" id="<%-bot.id%>" data-bs-toggle="dropdown" aria-expanded="false">
+    <div class="container">
+        <h3 class="mt-2">Your bots: </h3>
+        <div class="container-fluid d-inline-flex flex-wrap p-0">
+            <% for(let bot of bots) {%>
+                <div class="col-6 p-1 ps-0">
+                    <div class="container position-relative border border-dark rounded">
+                        <button class="btn btn-secondary dropdown-toggle position-absolute end-0 top-0 visually-hidden" type="button" id="<%-bot.id%>" data-bs-toggle="dropdown" aria-expanded="false">
                     </button>
-                    <label class="btn position-absolute end-0 top-0 mt-2 me-2" for="<%-bot.id%>"><h2 class="fw-bold"> &#8942;</h2> </label>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editMenu">Изменить название и токен</button></li>
-                        <li><button class="dropdown-item alert-danger" data-bs-toggle="modal" data-bs-target="#deleteMenu">Remove</button></li>
-                    </ul>
-                    <div class="row mt-2">
-                        <h5>Название чат-бота:</h5>
-                        <p class="fw-weight-light">
-                            <%=bot.name%>
-                        </p>
-                    </div>
-                    <div class="row mt-2 mb-5">
-                        <h5>Токен чат-бота</h5>
-                        <div class="col-12">
+                        <label class="btn position-absolute end-0 top-0 mt-2 me-2" for="<%-bot.id%>"><h2 class="fw-bold"> &#8942;</h2> </label>
+                        <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
+                            <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editMenu">Edit name or token</button></li>
+                            <li><button class="alert-danger dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteMenu">Delete</button></li>
+                        </ul>
+                        <div class="row mt-2">
+                            <h5>Chatbot name:</h5>
                             <p class="fw-weight-light">
-                                <%=bot.token%>
+                                <%=bot.name%>
                             </p>
                         </div>
+                        <div class="row mt-2 mb-5">
+                            <h5>Сhatbot token:</h5>
+                            <div class="col-12">
+                                <p class="fw-weight-light">
+                                    <%=bot.token%>
+                                </p>
+                            </div>
+                        </div>
+                        <a class="btn btn-secondary position-absolute end-0 bottom-0 m-1" type="button" href="/learning/<%= bot.id%>">Train a bot</a>
                     </div>
-                    <a class="btn btn-primary active bg-black position-absolute end-0 bottom-0 m-1" type="button" href="/learning/<%= bot.id%>">Обучить бота</a>
                 </div>
-            </div>
-            <%}%>
+                <%}%>
+        </div>
     </div>
 </div>
 <script src="../scripts/script.js"></script>
