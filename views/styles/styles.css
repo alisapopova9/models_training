@@ -29,11 +29,3 @@
         transform: rotate(360deg);
     }
 }
-
-.z-100 {
-    z-index: 100;
-}
-
-.bg-black-op-2 {
-    background-color: rgb(0, 0, 0, 0.2);
-}

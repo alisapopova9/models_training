@@ -35,8 +35,8 @@ form.addEventListener("submit", (event) => {
         });
 });
 
-function ChangeLoadButton() {
-    var checkInput = document.getElementById("file-upload");
+function changeLoadButton() {
+    const checkInput = document.getElementById("file-upload");
     if (checkInput.value) {
         document.getElementById("loadBtn").removeAttribute("disabled");
         document.getElementById("fileHelpBlock").hidden = true;
@@ -44,10 +44,10 @@ function ChangeLoadButton() {
 
 }
 
-function EnableButtons() {
+function enableButtons() {
     // TODO: убрать при отправке запроса
     event.preventDefault();
-    let checkInput = document.getElementById("file-upload");
+    const checkInput = document.getElementById("file-upload");
     document.getElementById("fileHelpBlock").hidden = false;
     document.getElementById("fileHelpBlock").textContent = "Файл '${checkInput.value}' успешно загружен!";
     document.getElementById("watchDataBtn").removeAttribute("disabled");
