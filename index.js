@@ -22,6 +22,16 @@ app.get("/", (req, res) => {
         token: "1902183901877623683180749819374796"
     }]
     res.render("index", { bots });
+    // axios
+    // .get("../api/v1/bot")
+    // .then((response) =>{
+    //     const bots = response.data;
+    //     console.log(bots);
+    //     res.render("index", { bots });
+    // })
+    // .catch((error) =>{
+    //     alert("Ошибка");
+    // })
 });
 
 app.get("/learning/:botId", (req, res) => {
@@ -31,6 +41,16 @@ app.get("/learning/:botId", (req, res) => {
         token: "1902183901877623683180749819374796"
     }
     res.render("layouts/learning", { bot });
+    // axios
+    // .get("../api/v1/bot/"+ req.params.botId)
+    // .then((response) =>{
+    //     const bot = response.data;
+    //     console.log(bot);
+    //     res.render("index", { bot });
+    // })
+    // .catch((error) =>{
+    //     alert("Ошибка");
+    // })
 });
 
 
