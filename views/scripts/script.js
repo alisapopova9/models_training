@@ -38,10 +38,9 @@ form.addEventListener("submit", (event) => {
 function changeLoadButton() {
     const checkInput = document.getElementById("file-upload");
     if (checkInput.value) {
-        document.getElementById("loadBtn").removeAttribute("disabled");
+        document.getElementById("loadButton").removeAttribute("disabled");
         document.getElementById("fileHelpBlock").hidden = true;
     }
-
 }
 
 function enableButtons() {
@@ -49,7 +48,7 @@ function enableButtons() {
     event.preventDefault();
     const checkInput = document.getElementById("file-upload");
     document.getElementById("fileHelpBlock").hidden = false;
-    document.getElementById("fileHelpBlock").textContent = "Файл '${checkInput.value}' успешно загружен!";
-    document.getElementById("watchDataBtn").removeAttribute("disabled");
-    document.getElementById("learnModelBtn").removeAttribute("disabled");
+    document.getElementById("fileHelpBlock").textContent = `Файл "${checkInput.value}" успешно загружен!`;
+    document.getElementById("watchDataButton").removeAttribute("disabled");
+    document.getElementById("learnModelButton").removeAttribute("disabled");
 }

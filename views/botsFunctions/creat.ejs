@@ -55,6 +55,11 @@
 </div>
 
 <div class="container">
+    <div class="row m-1">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item text-black">Home</li>
+        </ol>
+    </div>
     <div class="container mt-2">
         <button class="btn btn-secondary" type="button" data-bs-toggle="modal" data-bs-target="#createMenu">
                     Create bot
@@ -62,37 +67,40 @@
     </div>
     <!-- При наличии ботов нужно будет показывать данный блок -->
     <div class="container">
-        <h3 class="mt-2">Your bots: </h3>
-        <div class="container-fluid d-inline-flex flex-wrap p-0">
-            <% for(let bot of bots) {%>
-                <div class="col-6 p-1 ps-0">
-                    <div class="container position-relative border border-dark rounded">
-                        <button class="btn btn-secondary dropdown-toggle position-absolute end-0 top-0 visually-hidden" type="button" id="<%-bot.id%>" data-bs-toggle="dropdown" aria-expanded="false">
+        <%if (bots){%>
+            <h3 class="mt-2">Your bots: </h3>
+            <div class="container-fluid d-inline-flex flex-wrap p-0">
+                <% for(let bot of bots) {%>
+                    <div class="col-6 p-1 ps-0">
+                        <div class="container position-relative border border-dark rounded">
+                            <button class="btn btn-secondary dropdown-toggle position-absolute end-0 top-0 visually-hidden" type="button" id="<%-bot.id%>" data-bs-toggle="dropdown" aria-expanded="false">
                     </button>
-                        <label class="btn position-absolute end-0 top-0 mt-2 me-2" for="<%-bot.id%>"><h2 class="fw-bold"> &#8942;</h2> </label>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editMenu">Edit name or token</button></li>
-                            <li><button class="alert-danger dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteMenu">Delete</button></li>
-                        </ul>
-                        <div class="row mt-2">
-                            <h5>Chatbot name:</h5>
-                            <p class="fw-weight-light">
-                                <%=bot.name%>
-                            </p>
-                        </div>
-                        <div class="row mt-2 mb-5">
-                            <h5>Сhatbot token:</h5>
-                            <div class="col-12">
+                            <label class="btn position-absolute end-0 top-0 mt-2 me-2" for="<%-bot.id%>"><h2 class="fw-bold"> &#8942;</h2> </label>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editMenu">Edit name or token</button></li>
+                                <li><button class="alert-danger dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteMenu">Delete</button></li>
+                            </ul>
+                            <div class="row mt-2">
+                                <h5>Chatbot name:</h5>
                                 <p class="fw-weight-light">
-                                    <%=bot.token%>
+                                    <%=bot.name%>
                                 </p>
                             </div>
+                            <div class="row mt-2 mb-5">
+                                <h5>Сhatbot token:</h5>
+                                <div class="col-12">
+                                    <p class="fw-weight-light">
+                                        <%=bot.token%>
+                                    </p>
+                                </div>
+                            </div>
+                            <a class="btn btn-outline-secondary position-absolute end-0 bottom-0 m-1" type="button" href="/learning/<%= bot.id%>">Train a bot</a>
                         </div>
-                        <a class="btn btn-outline-secondary position-absolute end-0 bottom-0 m-1" type="button" href="/learning/<%= bot.id%>">Train a bot</a>
                     </div>
-                </div>
-                <%}%>
-        </div>
+                    <%}}else {%>
+                        <h3 class="mt-2">You don't have bots yet </h3>
+                        <%}%>
+            </div>
     </div>
 </div>
 <script src="../scripts/script.js"></script>
