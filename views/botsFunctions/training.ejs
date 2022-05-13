@@ -5,29 +5,21 @@
             <li class="breadcrumb-item text-black">Train</li>
         </ol>
     </div>
-    <form id="form" action="/" method="POST" enctype="multipart/form-data">
-        <div class="container">
-            <h4>
-                <%=bot.name%>
-            </h4>
-            <div class="row">
-                <div class="col-4">
-                    <label class="form-label" for="file-upload"></label>
-                    <input class="form-control" type="file" name="file" id="file-upload" accept=".csv" required onchange="changeLoadButton()" />
+    <div class="col-6">
+        <form class="container mt-2" action="/upload" method="post" enctype="multipart/form-data">
+            <h4><%=bot.name%></h4>
+            <fieldset>
+                <div class="d-flex justify-content-end">
+                <input class="form-control" type="file" name="uploadFile" id="file-upload" accept=".csv" required onchange="changeLoadButton()" />
+                <button class="btn btn-primary bg-black m-auto ms-3" type="submit" id="loadButton" onclick="enableButtons();" disabled>Upload</button>
                 </div>
-                <div class="col">
-                    <button class="btn btn-primary mt-4 bg-black" id="loadBtn" onclick="enableButtons()" disabled>Загрузить файл</button>
-                </div>
-                <small id="fileHelpBlock" class="form-text text-muted">Выберите файл с расширением csv</small>
+                <small id="fileHelpBlock" class="form-text text-muted">Select a file with the csv extension</small>
+            </fieldset>
+            <div class="d-flex mt-4">
+                <button class="btn btn-primary bg-black" id="learnModelButton" disabled>Train the model</button>
             </div>
-            <div class="row">
-                <div class="col-2">
-                    <button class="btn btn-primary mt-4 bg-black" type="submit" id="watchDataBtn" disabled>Посмотреть данные</button>
-                </div>
-                <div class="col">
-                    <button class="btn btn-primary mt-4 bg-black" type="submit" id="learnModelBtn" disabled>Обучить модель</button>
-                </div>
-            </div>
-        </div>
-    </form>
+        </form>
+    </div>
+    <div class="container" id="viewData">
+    </div>
 </div>
