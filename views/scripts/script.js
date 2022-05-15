@@ -1,6 +1,6 @@
 const { disable } = require("express/lib/application");
 const form = document.querySelector("#form");
-const submitBtn = document.querySelector("#submit");
+const submitButton = document.querySelector("#submit");
 const loader = document.querySelector(".loader");
 
 form.addEventListener("submit", (event) => {
@@ -8,9 +8,9 @@ form.addEventListener("submit", (event) => {
 
     const formData = new FormData(event.target);
 
-    submitBtn.classList.add = "disabled";
-    submitBtn.disabled = true;
-    submitBtn.innerText = "Wait";
+    submitButton.classList.add = "disabled";
+    submitButton.disabled = true;
+    submitButton.innerText = "Wait";
     loader.hidden = false;
 
     fetch(form.action, {
@@ -25,43 +25,32 @@ form.addEventListener("submit", (event) => {
             a.href = window.URL.createObjectURL(data);
             a.download = "result";
             a.click();
-            submitBtn.classList.remove("disabled");
-            submitBtn.disabled = false;
+            submitButton.classList.remove("disabled");
+            submitButton.disabled = false;
             loader.hidden = true;
-            submitBtn.innerText = "Train the model";
+            submitButton.innerText = "Train the model";
         })
         .catch((err) => {
             console.error(err);
         });
 });
-function ChangeLoadBtn(){
-    var checkInput = document.getElementById("file-upload");
-    if(checkInput.value){
-        document.getElementById("loadBtn").removeAttribute('disabled');
-        document.getElementById('fileHelpBlock').hidden=true;
+
+function changeLoadButton() {
+    const checkInput = document.getElementById("file-upload");
+    if (checkInput.value) {
+        document.getElementById("loadButton").removeAttribute("disabled");
     }
-
 }
 
-function EnableBtns(){
-    event.preventDefault(); //убрать при отправке запроса
-    var checkInput = document.getElementById("file-upload");
-    document.getElementById('fileHelpBlock').hidden=false;
-    document.getElementById('fileHelpBlock').textContent=`Файл "${checkInput.value}" успешно загружен!`;
-    document.getElementById('watchDataBtn').removeAttribute('disabled');
-    document.getElementById('learnModelBtn').removeAttribute('disabled');
-
+function getFilename(fullPath) {
+  return fullPath.replace(/^.*[\\\/]/, '');
 }
 
-function showBlock(blockId) {
-    document.getElementById(blockId).hidden = false;
-    document.addEventListener("click", function(event) {
-        if (event.target.id == blockId) {
-            document.getElementById(blockId).hidden = true;
-        }
-    });
-    document.addEventListener('keyup', function(event) {
-        if (event.key === "Escape")
-            document.getElementById(blockId).hidden = true;
-    });
+function enableButtons() {
+    // TODO: убрать при отправке запроса
+    event.preventDefault();
+    const checkInput = document.getElementById("file-upload");
+    document.getElementById("fileHelpBlock").hidden = false;
+    document.getElementById("fileHelpBlock").textContent = "Файл "+ getFilename(checkInput.value) +" успешно загружен!";
+    document.getElementById("learnModelButton").removeAttribute("disabled");
 }
