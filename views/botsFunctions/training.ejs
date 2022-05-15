@@ -1,8 +1,8 @@
 <div class=container>
     <div class="row m-1">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a class="text-black" href="/">Home</a></li>
-            <li class="breadcrumb-item text-black">Train</li>
+            <li class="breadcrumb-item"><a class="text-black" href="/">Главная</a></li>
+            <li class="breadcrumb-item text-black">Обучение чат-бота</li>
         </ol>
     </div>
     <div class="col-6">
@@ -11,12 +11,12 @@
             <fieldset>
                 <div class="d-flex justify-content-end">
                 <input class="form-control" type="file" name="uploadFile" id="file-upload" accept=".csv" required onchange="changeLoadButton()" />
-                <button class="btn btn-primary bg-black m-auto ms-3" type="submit" id="loadButton" onclick="enableButtons();" disabled>Upload</button>
+                <button class="btn btn-primary bg-black m-auto ms-3" type="submit" id="loadButton" onclick="enableButtons();" disabled>Загрузить</button>
                 </div>
-                <small id="fileHelpBlock" class="form-text text-muted">Select a file with the csv extension</small>
+                <small id="fileHelpBlock" class="form-text text-muted">Выберите файл с расширением csv</small>
             </fieldset>
             <div class="d-flex mt-4">
-                <button class="btn btn-primary bg-black" id="learnModelButton" disabled>Train the model</button>
+                <button class="btn btn-primary bg-black" id="learnModelButton" disabled>Обучить модель</button>
             </div>
         </form>
     </div>
