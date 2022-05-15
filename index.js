@@ -20,8 +20,12 @@ app.get("/", (req, res) => {
         name: "Бот-1",
         id: "1",
         token: "1902183901877623683180749819374796"
-    }]
-    res.render("index", { bots });
+    }];
+    let breadcrumb = [{
+        name: "Главная",
+        href: "#"
+    }];
+    res.render("index", { bots, breadcrumb});
 });
 
 app.get("/learning/:botId", (req, res) => {
@@ -29,8 +33,16 @@ app.get("/learning/:botId", (req, res) => {
         name: "Бот-1",
         id: "1",
         token: "1902183901877623683180749819374796"
-    }
-    res.render("layouts/learning", { bot });
+    };
+    let breadcrumb = [{
+        name: "Главная",
+        href: "/"
+    },
+    {
+        name: "Обучение",
+        href: "#"
+    }];
+    res.render("layouts/learning", { bot, breadcrumb });
 });
 
 

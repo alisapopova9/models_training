@@ -1,3 +1,14 @@
 <nav class="navbar bg-black">
-    <span class="navbar-brand ms-5 mb-0 h1 text-white">Minimum Viable Product</span>
+    <span class="navbar-brand ms-5 mb-0 h1 text-white">ШИФТ Лаб / Чат-бот платформа </span>
+        <ol class="breadcrumb m-auto ms-5">
+        <%for (let crumb of breadcrumb){%>
+            <li class="breadcrumb-item">
+                <% if (crumb.href!="#"){%>
+                <a class="text-white text-decoration-none" href="<%=crumb.href%>"><%=crumb.name%></a>
+                <%}else{%>
+                    <a class="text-white text-decoration-none"><%=crumb.name%></a>
+                <%}%>
+            </li>
+            <%}%>
+        </ol>
 </nav>
