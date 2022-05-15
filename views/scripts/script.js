@@ -1,4 +1,5 @@
 const { disable } = require("express/lib/application");
+const nodemon = require("nodemon");
 const form = document.querySelector("#form");
 const submitButton = document.querySelector("#submit");
 const loader = document.querySelector(".loader");
@@ -35,7 +36,7 @@ form.addEventListener("submit", (event) => {
         });
 });
 
-function changeLoadButton() {
+function changeLoadButton(input) {
     const checkInput = document.getElementById("file-upload");
     if (checkInput.value) {
         document.getElementById("loadButton").removeAttribute("disabled");
@@ -43,14 +44,32 @@ function changeLoadButton() {
 }
 
 function getFilename(fullPath) {
-  return fullPath.replace(/^.*[\\\/]/, '');
+  return fullPath.replace(/^.*[\\\/]/, "");
 }
 
 function enableButtons() {
     // TODO: убрать при отправке запроса
     event.preventDefault();
     const checkInput = document.getElementById("file-upload");
-    document.getElementById("fileHelpBlock").hidden = false;
     document.getElementById("fileHelpBlock").textContent = "Файл "+ getFilename(checkInput.value) +" успешно загружен!";
-    document.getElementById("learnModelButton").removeAttribute("disabled");
+}
+
+function previewFile(input) {
+    const [file] = input.files;
+    const uploadFile = new FileReader();
+  
+    uploadFile.addEventListener("load", () => {
+      if((uploadFile.result.indexOf("intent")===0)&&(uploadFile.result.indexOf("message")===7)&&(uploadFile.result.indexOf("\r")===14)){
+        enableButtons();
+      }
+      else{
+        let errorModal = new bootstrap.Modal(document.getElementById("error1"));
+        errorModal.show();
+      }
+      
+    }, false);
+
+    if (file) {
+        uploadFile.readAsText(file);
+    }
 }

@@ -29,3 +29,10 @@
         transform: rotate(360deg);
     }
 }
+
+.breadcrumb-item + .breadcrumb-item::before {
+    float: left;
+    padding-right: 0.5rem;
+    color: white;
+    content: var(--bs-breadcrumb-divider, ">");
+}

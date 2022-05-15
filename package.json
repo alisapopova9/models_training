@@ -16,7 +16,7 @@
     "ejs-mate": "^3.0.0",
     "express": "^4.17.3",
     "method-override": "^3.0.0",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "papaparse": "^5.3.2"
   }
 }
-

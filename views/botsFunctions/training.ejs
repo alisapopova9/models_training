@@ -1,20 +1,31 @@
-<a class="btn btn-secondary position-fixed ms-5 mt-5" href="#" onclick="history.back();return false;" class="history-back">&#60;</a>
-<div class=container>
+<a class="position-fixed start-0 bottom-0 ms-5 mb-5" href="#" onclick="history.back();return false;" class="history-back"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="black" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+  </svg></a>
+<div class="container">
     <div class="col-6">
         <form class="container mt-2" action="/upload" method="post" enctype="multipart/form-data">
             <h4><%=bot.name%></h4>
             <fieldset>
-                <div class="d-flex justify-content-end">
-                <input class="form-control" type="file" name="uploadFile" id="file-upload" accept=".csv" required onchange="changeLoadButton()" />
-                <button class="btn btn-primary bg-black m-auto ms-3" type="submit" id="loadButton" onclick="enableButtons();" disabled>Загрузить</button>
+                <div class="d-flex">
+                <input class="form-control" type="file" name="uploadFile" id="file-upload" accept=".csv" required onchange="previewFile(this)" />
+                <button class="btn btn-primary col-3 bg-black m-auto ms-3" id="loadButton" onclick="enableButtons();" disabled>Обучить модель</button>
                 </div>
                 <small id="fileHelpBlock" class="form-text text-muted">Выберите файл с расширением csv</small>
             </fieldset>
-            <div class="d-flex mt-4">
-                <button class="btn btn-primary bg-black" id="learnModelButton" disabled>Обучить модель</button>
-            </div>
         </form>
     </div>
-    <div class="container" id="viewData">
+</div>
+<div class="modal fade" id="error1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-3">
+            <div class="modal-header justify-content-center p-0">
+                <h5 class="modal-title" id="exampleModalLabel">Ошибка</h5>
+            </div>
+                <ul>
+                    <h7 class="modal-title">Проверьте следующие критерии :</h7>
+                    <h7 class="modal-title"><li>Данные представленны не в таличном виде</li></h7>
+                    <h7 class="modal-title"><li>Название столбцов должны быть : intent и message</li></h7>
+                </ul>
+        </div>
     </div>
 </div>
