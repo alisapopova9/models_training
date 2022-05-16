@@ -7,8 +7,8 @@
             <h4><%=bot.name%></h4>
             <fieldset>
                 <div class="d-flex">
-                <input class="form-control" type="file" name="uploadFile" id="file-upload" accept=".csv" required onchange="previewFile(this)" />
-                <button class="btn btn-primary col-3 bg-black m-auto ms-3" id="loadButton" onclick="enableButtons();" disabled>Обучить модель</button>
+                <input class="form-control" type="file" name="uploadFile" id="file-upload" accept=".csv" required onchange="validationFile(this)" />
+                <button class="btn btn-primary col-3 bg-black m-auto ms-3" id="loadButton" disabled>Обучить модель</button>
                 </div>
                 <small id="fileHelpBlock" class="form-text text-muted">Выберите файл с расширением csv</small>
             </fieldset>

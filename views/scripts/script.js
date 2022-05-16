@@ -36,37 +36,23 @@ form.addEventListener("submit", (event) => {
         });
 });
 
-function changeLoadButton(input) {
-    const checkInput = document.getElementById("file-upload");
-    if (checkInput.value) {
-        document.getElementById("loadButton").removeAttribute("disabled");
-    }
-}
-
 function getFilename(fullPath) {
   return fullPath.replace(/^.*[\\\/]/, "");
 }
 
-function enableButtons() {
-    // TODO: убрать при отправке запроса
-    event.preventDefault();
-    const checkInput = document.getElementById("file-upload");
-    document.getElementById("fileHelpBlock").textContent = "Файл "+ getFilename(checkInput.value) +" успешно загружен!";
-}
-
-function previewFile(input) {
+function validationFile(input) {
     const [file] = input.files;
     const uploadFile = new FileReader();
-  
     uploadFile.addEventListener("load", () => {
-      if((uploadFile.result.indexOf("intent")===0)&&(uploadFile.result.indexOf("message")===7)&&(uploadFile.result.indexOf("\r")===14)){
-        enableButtons();
+      if(uploadFile.result.indexOf(",message,intent\n0,")==0){
+        document.getElementById("loadButton").removeAttribute("disabled");
+        const checkInput = document.getElementById("file-upload");
+        document.getElementById("fileHelpBlock").textContent = "Файл "+ getFilename(checkInput.value) +" успешно проверен!";
       }
       else{
         let errorModal = new bootstrap.Modal(document.getElementById("error1"));
         errorModal.show();
       }
-      
     }, false);
 
     if (file) {
